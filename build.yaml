@@ -1,0 +1,8 @@
+# build_runner時に順番を指定しないとエラーが発生する場合がある
+global_options:
+  freezed:
+    runs_before:
+      - json_serializable
+  json_serializable:
+    runs_before:
+      - retrofit_generator

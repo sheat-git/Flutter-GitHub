@@ -1,16 +1,10 @@
-# github
+# Flutter-GitHub
 
-Simple GitHub client app.
+Flutterを使用したGitHubクライアントアプリ。
 
-## Getting Started
+## 環境
 
-This project is a starting point for a Flutter application.
+- エディタ: VSCode
+- Flutter: 3.19.6[^1]
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[^1]: テーマに関するライブラリの[flex_color_scheme](https://pub.dev/packages/flex_color_scheme)が[3.22に未対応](https://github.com/rydmike/flex_color_scheme/discussions/232#discussioncomment-9484785)なため。

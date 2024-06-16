@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_ipa:
+    name: Build IPA
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.19.6
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Import Provisioning Profile
+        run: |
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo -n ${{ secrets.PROVISIONING_PROFILE }} | base64 -d -o ~/Library/MobileDevice/Provisioning\ Profiles/distribution.mobileprovision
+
+      - name: Import Code-signing Certificates
+        uses: apple-actions/import-codesign-certs@v3
+        with:
+          p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+          p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+
+      - name: Build IPA
+        run: flutter build ipa --release --export-options-plist ios/ExportOptions.plist --build-number ${GITHUB_RUN_NUMBER}
+
+      - name: Upload IPA
+        run: xcrun altool --upload-app -f build/ios/ipa/*.ipa -t ios -u ${{ secrets.APPLE_ID }} -p ${{ secrets.APPLE_APP_PASS }}
