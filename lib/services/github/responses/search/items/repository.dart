@@ -1,0 +1,110 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:github/services/github/responses/common/repository_permissions.dart';
+import 'package:github/services/github/responses/common/simple_license.dart';
+import 'package:github/services/github/responses/common/simple_user.dart';
+import 'package:github/services/github/responses/search/items/common/text_match.dart';
+
+part 'repository.freezed.dart';
+part 'repository.g.dart';
+
+// 参照: https://docs.github.com/ja/rest/search/search?apiVersion=2022-11-28#search-repositories
+
+@freezed
+class RepositoryItem with _$RepositoryItem {
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory RepositoryItem({
+    required int id,
+    required String nodeId,
+    required String name,
+    required String fullName,
+    required SimpleUser? owner,
+    required bool private,
+    required Uri htmlUrl,
+    required String? description,
+    required bool fork,
+    required Uri url,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    // スキーマではpushed_atはstringだが、実際のレスポンスはnullの場合がある
+    DateTime? pushedAt,
+    required Uri? homepage,
+    required int size,
+    required int stargazersCount,
+    required int watchersCount,
+    required String? language,
+    required int forksCount,
+    required int openIssuesCount,
+    String? masterBranch,
+    required String defaultBranch,
+    required double score,
+    required Uri forksUrl,
+    required String keysUrl,
+    required String collaboratorsUrl,
+    required Uri teamsUrl,
+    required Uri hooksUrl,
+    required String issueEventsUrl,
+    required Uri eventsUrl,
+    required String assigneesUrl,
+    required String branchesUrl,
+    required Uri tagsUrl,
+    required String blobsUrl,
+    required String gitTagsUrl,
+    required String gitRefsUrl,
+    required String treesUrl,
+    required String statusesUrl,
+    required Uri languagesUrl,
+    required Uri stargazersUrl,
+    required Uri contributorsUrl,
+    required Uri subscribersUrl,
+    required Uri subscriptionUrl,
+    required String commitsUrl,
+    required String gitCommitsUrl,
+    required String commentsUrl,
+    required String issueCommentUrl,
+    required String contentsUrl,
+    required String compareUrl,
+    required Uri mergesUrl,
+    required String archiveUrl,
+    required Uri downloadsUrl,
+    required String issuesUrl,
+    required String pullsUrl,
+    required String milestonesUrl,
+    required String notificationsUrl,
+    required String labelsUrl,
+    required String releasesUrl,
+    required Uri deploymentsUrl,
+    required String gitUrl,
+    required String sshUrl,
+    required String cloneUrl,
+    required Uri svnUrl,
+    required int forks,
+    required int openIssues,
+    required int watchers,
+    List<String>? topics,
+    required Uri? mirrorUrl,
+    required bool hasIssues,
+    required bool hasProjects,
+    required bool hasPages,
+    required bool hasWiki,
+    required bool hasDownloads,
+    bool? hasDiscussions,
+    required bool archived,
+    required bool disabled,
+    String? visibility,
+    required SimpleLicense? license,
+    RepositoryPermissions? permissions,
+    List<TextMatch>? textMatches,
+    String? tempCloneToken,
+    bool? allowMergeCommit,
+    bool? allowSquashMerge,
+    bool? allowRebaseMerge,
+    bool? allowAutoMerge,
+    bool? deleteBranchOnMerge,
+    bool? allowForking,
+    bool? isTemplate,
+    bool? webCommitSignoff,
+  }) = _RepositoryItem;
+
+  factory RepositoryItem.fromJson(Map<String, dynamic> json) =>
+      _$RepositoryItemFromJson(json);
+}
