@@ -1,1 +1,57 @@
-{}
+{
+  "serverErrorMessage": "A problem occurred on the server.",
+  "connectionErrorMessage": "There is a connection issue. Please check your internet.",
+  "genericErrorMessage": "An error occurred.",
+  "retry": "Retry",
+  "trending": "Trending",
+  "today": "Today",
+  "thisWeek": "This Week",
+  "thisMonth": "This Month",
+  "language": "Language",
+  "spokenLanguage": "Spoken Language",
+  "noResults": "No results.",
+  "search": "Search",
+  "repositoriesWithQ": "Repositories with \"{q}\"",
+  "@repositoriesWithQ": {
+    "placeholders": {
+      "q": {
+        "type": "String"
+      }
+    }
+  },
+  "peopleWithQ": "People with \"{q}\"",
+  "@peopleWithQ": {
+    "placeholders": {
+      "q": {
+        "type": "String"
+      }
+    }
+  },
+  "nStarsToday": "{n} today",
+  "@nStarsToday": {
+    "placeholders": {
+      "n": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "nStarsThisWeek": "{n} this week",
+  "@nStarsThisWeek": {
+    "placeholders": {
+      "n": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "nStarsThisMonth": "{n} this month",
+  "@nStarsThisMonth": {
+    "placeholders": {
+      "n": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  }
+}
