@@ -53,5 +53,16 @@
         "format": "decimalPattern"
       }
     }
-  }
+  },
+  "settings": "Settings",
+  "system": "System",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark",
+  "pureBlack": "Pure Black",
+  "pureBlackDescription": "Use pure black for dark mode.",
+  "dynamicColor": "Dynamic Color",
+  "colorScheme": "Color Scheme",
+  "openLinksInExternalBrowser": "Open Links in External Browser",
+  "license": "License"
 }

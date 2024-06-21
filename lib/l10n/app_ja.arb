@@ -15,5 +15,16 @@
   "peopleWithQ": "\"{q}\" を含む人",
   "nStarsToday": "今日は{n}",
   "nStarsThisWeek": "今週は{n}",
-  "nStarsThisMonth": "今月は{n}"
+  "nStarsThisMonth": "今月は{n}",
+  "settings": "設定",
+  "system": "システム",
+  "theme": "テーマ",
+  "light": "ライト",
+  "dark": "ダーク",
+  "pureBlack": "純粋なブラック",
+  "pureBlackDescription": "ダークモードで純粋な黒色を使用する",
+  "dynamicColor": "ダイナミックカラー",
+  "colorScheme": "カラースキーム",
+  "openLinksInExternalBrowser": "リンクを外部ブラウザで開く",
+  "license": "ライセンス"
 }
