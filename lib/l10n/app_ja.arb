@@ -26,5 +26,13 @@
   "dynamicColor": "ダイナミックカラー",
   "colorScheme": "カラースキーム",
   "openLinksInExternalBrowser": "リンクを外部ブラウザで開く",
-  "license": "ライセンス"
+  "license": "ライセンス",
+  "repositories": "リポジトリ",
+  "bestMatch": "ベストマッチ",
+  "mostStars": "スター数が多い順",
+  "fewestStars": "スター数が少ない順",
+  "mostForks": "フォーク数が多い順",
+  "fewestForks": "フォーク数が少ない順",
+  "recentlyUpdated": "最近更新された順",
+  "leastRecentlyUpdated": "最近更新されていない順"
 }

@@ -64,5 +64,13 @@
   "dynamicColor": "Dynamic Color",
   "colorScheme": "Color Scheme",
   "openLinksInExternalBrowser": "Open Links in External Browser",
-  "license": "License"
+  "license": "License",
+  "repositories": "Repositories",
+  "bestMatch": "Best Match",
+  "mostStars": "Most Stars",
+  "fewestStars": "Fewest Stars",
+  "mostForks": "Most Forks",
+  "fewestForks": "Fewest Forks",
+  "recentlyUpdated": "Recently Updated",
+  "leastRecentlyUpdated": "Least Recently Updated"
 }
