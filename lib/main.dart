@@ -1,5 +1,6 @@
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,6 +10,14 @@ import 'package:github/services/database/tables/settings.dart' hide Settings;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
+  LicenseRegistry.addLicense(() => Stream.fromIterable([
+        const LicenseEntryWithLineBreaks(
+          ['App Icon'],
+          'Cat Icons Vectors by Vecteezy\n\nhttps://www.vecteezy.com/free-vector/cat-icons',
+        ),
+      ]));
+
   runApp(const ProviderScope(child: GithubApp()));
 }
 
