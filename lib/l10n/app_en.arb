@@ -92,5 +92,6 @@
     }
   },
   "issues": "Issues",
-  "watchers": "Watchers"
+  "watchers": "Watchers",
+  "bookmarks": "Bookmarks"
 }
