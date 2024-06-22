@@ -72,5 +72,12 @@
   "mostForks": "Most Forks",
   "fewestForks": "Fewest Forks",
   "recentlyUpdated": "Recently Updated",
-  "leastRecentlyUpdated": "Least Recently Updated"
+  "leastRecentlyUpdated": "Least Recently Updated",
+  "users": "Users",
+  "mostFollowers": "Most Followers",
+  "fewestFollowers": "Fewest Followers",
+  "mostRecentlyJoined": "Most Recently Joined",
+  "leastRecentlyJoined": "Least Recently Joined",
+  "mostRepositories": "Most Repositories",
+  "fewestRepositories": "Fewest Repositories"
 }
