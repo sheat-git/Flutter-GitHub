@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "name": "GitHub (debug mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug"
+    }
+  ]
+}
