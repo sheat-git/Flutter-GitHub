@@ -44,5 +44,7 @@
   "fewestRepositories": "リポジトリ数が少ない順",
   "searchResults": "検索結果",
   "showMore": "さらに表示する",
-  "showNMore": "さらに{n}件を表示する"
+  "showNMore": "さらに{n}件を表示する",
+  "issues": "Issue",
+  "watchers": "Watchしているユーザー"
 }

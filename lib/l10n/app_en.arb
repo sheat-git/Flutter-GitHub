@@ -90,5 +90,7 @@
         "format": "decimalPattern"
       }
     }
-  }
+  },
+  "issues": "Issues",
+  "watchers": "Watchers"
 }
