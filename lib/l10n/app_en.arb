@@ -79,5 +79,16 @@
   "mostRecentlyJoined": "Most Recently Joined",
   "leastRecentlyJoined": "Least Recently Joined",
   "mostRepositories": "Most Repositories",
-  "fewestRepositories": "Fewest Repositories"
+  "fewestRepositories": "Fewest Repositories",
+  "searchResults": "Search Results",
+  "showMore": "Show more",
+  "showNMore": "Show {n} more",
+  "@showNMore": {
+    "placeholders": {
+      "n": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  }
 }
