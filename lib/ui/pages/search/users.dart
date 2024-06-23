@@ -38,6 +38,12 @@ class SearchUsersPage extends HookConsumerWidget {
         future: (index) => provider(index).future,
         onRetry: (index) => ref.read(provider(index).notifier).reload(),
         itemBuilder: (context, item) => UserListTile(user: item),
+        emptyBuilder: (context) => Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: Text(AppLocalizations.of(context)!.noResults),
+          ),
+        ),
       ),
     );
   }
