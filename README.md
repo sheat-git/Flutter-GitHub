@@ -37,24 +37,15 @@ Flutterを使用したGitHubクライアントアプリ。
     - ダイナミックカラー対応
     - カラースキーム変更
   - アプリ内ブラウザか外部ブラウザか選択
-- CI・CD
-  - 静的解析
-  - AppStoreConnectへの自動アップロード
 
 ### 未実装
 
-- トレンドリポジトリのブックマーク  
+- トレンドリポジトリのブックマーク
   [API](https://github.com/alisoft/github-trending-api/tree/master?tab=readme-ov-file)を改良し、idも返すようにすれば可能。
 - issueなどの検索や、ユーザーなどの詳細表示
-- テスト  
-  書いたことがなく、何をすれば良いかわかっていない。
 
 ## スクリーンショット
 
 | トレンド | 検索 | 設定 |
 | --- | --- | --- |
 | ![](screenshots/trending.png) | ![](screenshots/search.png) | ![](screenshots/settings.png) |
-
-## TestFlight
-
-[こちら](https://testflight.apple.com/join/XLw6WqyD)から参加できます。
