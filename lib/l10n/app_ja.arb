@@ -47,5 +47,6 @@
   "showNMore": "さらに{n}件を表示する",
   "issues": "Issue",
   "watchers": "Watchしているユーザー",
-  "bookmarks": "ブックマーク"
+  "bookmarks": "ブックマーク",
+  "noBookmarks": "ブックマークがありません。"
 }
