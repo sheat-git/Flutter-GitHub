@@ -13,7 +13,6 @@ class ScrollPagination<T> extends HookConsumerWidget {
   final void Function(int index)? onRetry;
   final Future<void> Function(int maxIndex)? onRefresh;
   final Widget Function(BuildContext context, T item) itemBuilder;
-  final Widget Function(BuildContext context)? emptyBuilder;
 
   const ScrollPagination({
     super.key,
@@ -22,7 +21,6 @@ class ScrollPagination<T> extends HookConsumerWidget {
     this.onRetry,
     this.onRefresh,
     required this.itemBuilder,
-    this.emptyBuilder,
   });
 
   @override
@@ -36,7 +34,7 @@ class ScrollPagination<T> extends HookConsumerWidget {
       growable: false,
     );
 
-    // 最初の値がないときは、ローディングやエラーを真ん中に表示
+    // 最初のロード時は、ローディングやエラーを真ん中に表示
     if (!values.first.hasValue) {
       final widget = values.first.whenOrNull(
         error: (error, _) => ErrorBody(
@@ -46,13 +44,6 @@ class ScrollPagination<T> extends HookConsumerWidget {
         loading: () => const LoadingBody(),
       );
       if (widget != null) return widget;
-    }
-
-    // 値があっても、空のときはemptyBuilderを表示
-    if (values.first.hasValue &&
-        values.first.requireValue.isEmpty &&
-        emptyBuilder != null) {
-      return emptyBuilder!(context);
     }
 
     return RefreshIndicator(

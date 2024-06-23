@@ -89,7 +89,6 @@ class SearchPage extends ConsumerWidget {
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // セクションタイトル
           ListItem(
             child: Text(
               title,
@@ -99,27 +98,20 @@ class SearchPage extends ConsumerWidget {
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
-          if (response.items.isEmpty)
-            ListTile(title: Text(AppLocalizations.of(context)!.noResults))
-          else
-            for (final item in response.items) itemBuilder(item),
-          // 結果が不完全な場合、または全件数よりも少ない場合は「もっと見る」を表示
-          if (response.incompleteResults ||
-              response.items.length < response.totalCount)
-            ListTile(
-              onTap: onShowMore,
-              dense: true,
-              visualDensity: VisualDensity.compact,
-              title: Text(
-                response.incompleteResults
-                    // 不完全な場合は件数を表示しない
-                    ? AppLocalizations.of(context)!.showMore
-                    : AppLocalizations.of(context)!
-                        .showNMore(response.totalCount - response.items.length),
-              ),
-              textColor: Theme.of(context).colorScheme.primary,
-              trailing: const Icon(Symbols.navigate_next),
+          for (final item in response.items) itemBuilder(item),
+          ListTile(
+            onTap: onShowMore,
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            title: Text(
+              response.incompleteResults == true
+                  ? AppLocalizations.of(context)!.showMore
+                  : AppLocalizations.of(context)!
+                      .showNMore(response.totalCount - response.items.length),
             ),
+            textColor: Theme.of(context).colorScheme.primary,
+            trailing: const Icon(Symbols.navigate_next),
+          ),
         ],
       );
 }
