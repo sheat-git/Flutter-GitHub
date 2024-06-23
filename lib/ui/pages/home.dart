@@ -57,7 +57,7 @@ class HomePage extends HookConsumerWidget {
     useEffect(() {
       fabIsHidden.value = false;
       return null;
-    }, [since, language, spokenLanguage]);
+    }, [since.value, language.value, spokenLanguage.value]);
 
     return Scaffold(
       appBar: AppBar(
