@@ -93,5 +93,6 @@
   },
   "issues": "Issues",
   "watchers": "Watchers",
-  "bookmarks": "Bookmarks"
+  "bookmarks": "Bookmarks",
+  "noBookmarks": "No bookmarks."
 }
