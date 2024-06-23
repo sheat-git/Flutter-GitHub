@@ -48,12 +48,6 @@ class SearchRepositoriesPage extends HookConsumerWidget {
           stars: NumberFormat.decimalPattern().format(item.stargazersCount),
           language: item.language,
         ),
-        emptyBuilder: (context) => Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
-            child: Text(AppLocalizations.of(context)!.noResults),
-          ),
-        ),
       ),
     );
   }
