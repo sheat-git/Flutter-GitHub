@@ -1,4 +1,4 @@
-name: Analyze
+name: Analyze and Test
 
 on:
   pull_request:
@@ -7,8 +7,8 @@ on:
       - develop
 
 jobs:
-  analyze:
-    name: Analyze
+  analyze_and_test:
+    name: Analyze and Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,3 +26,6 @@ jobs:
 
       - name: Analyze
         run: flutter analyze
+
+      - name: Test
+        run: flutter test
