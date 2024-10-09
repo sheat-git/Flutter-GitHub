@@ -46,6 +46,7 @@ dev_dependencies:
   go_router_builder: ^2.7.0
   retrofit_generator: ^8.1.0
   drift_dev: ^2.18.0
+  network_image_mock: ^2.1.1
 
 flutter:
   uses-material-design: true

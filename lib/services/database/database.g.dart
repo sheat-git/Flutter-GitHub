@@ -105,6 +105,13 @@ class RepositoryBookmark extends DataClass
         id: id ?? this.id,
         addedAt: addedAt ?? this.addedAt,
       );
+  RepositoryBookmark copyWithCompanion(RepositoryBookmarksCompanion data) {
+    return RepositoryBookmark(
+      id: data.id.present ? data.id.value : this.id,
+      addedAt: data.addedAt.present ? data.addedAt.value : this.addedAt,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('RepositoryBookmark(')
@@ -278,6 +285,13 @@ class SearchHistory extends DataClass implements Insertable<SearchHistory> {
         id: id ?? this.id,
         query: query ?? this.query,
       );
+  SearchHistory copyWithCompanion(SearchHistoriesCompanion data) {
+    return SearchHistory(
+      id: data.id.present ? data.id.value : this.id,
+      query: data.query.present ? data.query.value : this.query,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('SearchHistory(')
@@ -589,6 +603,24 @@ class SettingsData extends DataClass implements Insertable<SettingsData> {
         openLinksInExternalBrowser:
             openLinksInExternalBrowser ?? this.openLinksInExternalBrowser,
       );
+  SettingsData copyWithCompanion(SettingsCompanion data) {
+    return SettingsData(
+      locale: data.locale.present ? data.locale.value : this.locale,
+      theme: data.theme.present ? data.theme.value : this.theme,
+      usePureBlackInDarkMode: data.usePureBlackInDarkMode.present
+          ? data.usePureBlackInDarkMode.value
+          : this.usePureBlackInDarkMode,
+      useDynamicColor: data.useDynamicColor.present
+          ? data.useDynamicColor.value
+          : this.useDynamicColor,
+      colorScheme:
+          data.colorScheme.present ? data.colorScheme.value : this.colorScheme,
+      openLinksInExternalBrowser: data.openLinksInExternalBrowser.present
+          ? data.openLinksInExternalBrowser.value
+          : this.openLinksInExternalBrowser,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('SettingsData(')
@@ -740,7 +772,7 @@ class SettingsCompanion extends UpdateCompanion<SettingsData> {
 
 abstract class _$Database extends GeneratedDatabase {
   _$Database(QueryExecutor e) : super(e);
-  _$DatabaseManager get managers => _$DatabaseManager(this);
+  $DatabaseManager get managers => $DatabaseManager(this);
   late final $RepositoryBookmarksTable repositoryBookmarks =
       $RepositoryBookmarksTable(this);
   late final $SearchHistoriesTable searchHistories =
@@ -766,7 +798,7 @@ abstract class _$Database extends GeneratedDatabase {
       ];
 }
 
-typedef $$RepositoryBookmarksTableInsertCompanionBuilder
+typedef $$RepositoryBookmarksTableCreateCompanionBuilder
     = RepositoryBookmarksCompanion Function({
   Value<int> id,
   required DateTime addedAt,
@@ -783,8 +815,7 @@ class $$RepositoryBookmarksTableTableManager extends RootTableManager<
     RepositoryBookmark,
     $$RepositoryBookmarksTableFilterComposer,
     $$RepositoryBookmarksTableOrderingComposer,
-    $$RepositoryBookmarksTableProcessedTableManager,
-    $$RepositoryBookmarksTableInsertCompanionBuilder,
+    $$RepositoryBookmarksTableCreateCompanionBuilder,
     $$RepositoryBookmarksTableUpdateCompanionBuilder> {
   $$RepositoryBookmarksTableTableManager(
       _$Database db, $RepositoryBookmarksTable table)
@@ -795,9 +826,7 @@ class $$RepositoryBookmarksTableTableManager extends RootTableManager<
               ComposerState(db, table)),
           orderingComposer: $$RepositoryBookmarksTableOrderingComposer(
               ComposerState(db, table)),
-          getChildManagerBuilder: (p) =>
-              $$RepositoryBookmarksTableProcessedTableManager(p),
-          getUpdateCompanionBuilder: ({
+          updateCompanionCallback: ({
             Value<int> id = const Value.absent(),
             Value<DateTime> addedAt = const Value.absent(),
           }) =>
@@ -805,7 +834,7 @@ class $$RepositoryBookmarksTableTableManager extends RootTableManager<
             id: id,
             addedAt: addedAt,
           ),
-          getInsertCompanionBuilder: ({
+          createCompanionCallback: ({
             Value<int> id = const Value.absent(),
             required DateTime addedAt,
           }) =>
@@ -814,19 +843,6 @@ class $$RepositoryBookmarksTableTableManager extends RootTableManager<
             addedAt: addedAt,
           ),
         ));
-}
-
-class $$RepositoryBookmarksTableProcessedTableManager
-    extends ProcessedTableManager<
-        _$Database,
-        $RepositoryBookmarksTable,
-        RepositoryBookmark,
-        $$RepositoryBookmarksTableFilterComposer,
-        $$RepositoryBookmarksTableOrderingComposer,
-        $$RepositoryBookmarksTableProcessedTableManager,
-        $$RepositoryBookmarksTableInsertCompanionBuilder,
-        $$RepositoryBookmarksTableUpdateCompanionBuilder> {
-  $$RepositoryBookmarksTableProcessedTableManager(super.$state);
 }
 
 class $$RepositoryBookmarksTableFilterComposer
@@ -857,7 +873,7 @@ class $$RepositoryBookmarksTableOrderingComposer
           ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
-typedef $$SearchHistoriesTableInsertCompanionBuilder = SearchHistoriesCompanion
+typedef $$SearchHistoriesTableCreateCompanionBuilder = SearchHistoriesCompanion
     Function({
   Value<int> id,
   required String query,
@@ -874,8 +890,7 @@ class $$SearchHistoriesTableTableManager extends RootTableManager<
     SearchHistory,
     $$SearchHistoriesTableFilterComposer,
     $$SearchHistoriesTableOrderingComposer,
-    $$SearchHistoriesTableProcessedTableManager,
-    $$SearchHistoriesTableInsertCompanionBuilder,
+    $$SearchHistoriesTableCreateCompanionBuilder,
     $$SearchHistoriesTableUpdateCompanionBuilder> {
   $$SearchHistoriesTableTableManager(_$Database db, $SearchHistoriesTable table)
       : super(TableManagerState(
@@ -885,9 +900,7 @@ class $$SearchHistoriesTableTableManager extends RootTableManager<
               $$SearchHistoriesTableFilterComposer(ComposerState(db, table)),
           orderingComposer:
               $$SearchHistoriesTableOrderingComposer(ComposerState(db, table)),
-          getChildManagerBuilder: (p) =>
-              $$SearchHistoriesTableProcessedTableManager(p),
-          getUpdateCompanionBuilder: ({
+          updateCompanionCallback: ({
             Value<int> id = const Value.absent(),
             Value<String> query = const Value.absent(),
           }) =>
@@ -895,7 +908,7 @@ class $$SearchHistoriesTableTableManager extends RootTableManager<
             id: id,
             query: query,
           ),
-          getInsertCompanionBuilder: ({
+          createCompanionCallback: ({
             Value<int> id = const Value.absent(),
             required String query,
           }) =>
@@ -904,18 +917,6 @@ class $$SearchHistoriesTableTableManager extends RootTableManager<
             query: query,
           ),
         ));
-}
-
-class $$SearchHistoriesTableProcessedTableManager extends ProcessedTableManager<
-    _$Database,
-    $SearchHistoriesTable,
-    SearchHistory,
-    $$SearchHistoriesTableFilterComposer,
-    $$SearchHistoriesTableOrderingComposer,
-    $$SearchHistoriesTableProcessedTableManager,
-    $$SearchHistoriesTableInsertCompanionBuilder,
-    $$SearchHistoriesTableUpdateCompanionBuilder> {
-  $$SearchHistoriesTableProcessedTableManager(super.$state);
 }
 
 class $$SearchHistoriesTableFilterComposer
@@ -946,7 +947,7 @@ class $$SearchHistoriesTableOrderingComposer
           ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
-typedef $$SettingsTableInsertCompanionBuilder = SettingsCompanion Function({
+typedef $$SettingsTableCreateCompanionBuilder = SettingsCompanion Function({
   required LocaleSetting locale,
   required ThemeSetting theme,
   required bool usePureBlackInDarkMode,
@@ -971,8 +972,7 @@ class $$SettingsTableTableManager extends RootTableManager<
     SettingsData,
     $$SettingsTableFilterComposer,
     $$SettingsTableOrderingComposer,
-    $$SettingsTableProcessedTableManager,
-    $$SettingsTableInsertCompanionBuilder,
+    $$SettingsTableCreateCompanionBuilder,
     $$SettingsTableUpdateCompanionBuilder> {
   $$SettingsTableTableManager(_$Database db, $SettingsTable table)
       : super(TableManagerState(
@@ -982,9 +982,7 @@ class $$SettingsTableTableManager extends RootTableManager<
               $$SettingsTableFilterComposer(ComposerState(db, table)),
           orderingComposer:
               $$SettingsTableOrderingComposer(ComposerState(db, table)),
-          getChildManagerBuilder: (p) =>
-              $$SettingsTableProcessedTableManager(p),
-          getUpdateCompanionBuilder: ({
+          updateCompanionCallback: ({
             Value<LocaleSetting> locale = const Value.absent(),
             Value<ThemeSetting> theme = const Value.absent(),
             Value<bool> usePureBlackInDarkMode = const Value.absent(),
@@ -1002,7 +1000,7 @@ class $$SettingsTableTableManager extends RootTableManager<
             openLinksInExternalBrowser: openLinksInExternalBrowser,
             rowid: rowid,
           ),
-          getInsertCompanionBuilder: ({
+          createCompanionCallback: ({
             required LocaleSetting locale,
             required ThemeSetting theme,
             required bool usePureBlackInDarkMode,
@@ -1021,18 +1019,6 @@ class $$SettingsTableTableManager extends RootTableManager<
             rowid: rowid,
           ),
         ));
-}
-
-class $$SettingsTableProcessedTableManager extends ProcessedTableManager<
-    _$Database,
-    $SettingsTable,
-    SettingsData,
-    $$SettingsTableFilterComposer,
-    $$SettingsTableOrderingComposer,
-    $$SettingsTableProcessedTableManager,
-    $$SettingsTableInsertCompanionBuilder,
-    $$SettingsTableUpdateCompanionBuilder> {
-  $$SettingsTableProcessedTableManager(super.$state);
 }
 
 class $$SettingsTableFilterComposer
@@ -1111,9 +1097,9 @@ class $$SettingsTableOrderingComposer
               ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
-class _$DatabaseManager {
+class $DatabaseManager {
   final _$Database _db;
-  _$DatabaseManager(this._db);
+  $DatabaseManager(this._db);
   $$RepositoryBookmarksTableTableManager get repositoryBookmarks =>
       $$RepositoryBookmarksTableTableManager(_db, _db.repositoryBookmarks);
   $$SearchHistoriesTableTableManager get searchHistories =>
